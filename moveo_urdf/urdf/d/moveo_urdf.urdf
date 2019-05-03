@@ -1,0 +1,62 @@
+<?xml version='1.0'?>
+<robot
+  name="moveo_urdf">	
+
+  <link
+    name="base_link">
+    <visual>
+      <origin
+        xyz="0 0 .13"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://moveo_urdf/meshes/base_link(copy).stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 .13"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://moveo_urdf/meshes/base_link_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- dummy link -->
+  <link
+    name="odom">
+    <inertial>
+      <origin
+        xyz="0.034155 -0.20591 -0.049641"
+        rpy="0 0 0" />
+      <mass
+        value="8.0643" />
+      <inertia
+        ixx="0.11291"
+        ixy="0.00066071"
+        ixz="-0.00030472"
+        iyy="0.089946"
+        iyz="0.011461"
+        izz="0.19187" />
+    </inertial>
+   </link>
+
+  <joint
+    name="odom_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="odom" />
+  </joint>
+
